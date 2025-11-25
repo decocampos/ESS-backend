@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -14,11 +14,11 @@ enum Status {
 }
 
 model Tarefa {
-  id             Int      @id @default(autoincrement())
-  titulo         String
-  descricao      String?
-  status         Status
-  dataVencimento DateTime? @map("data_vencimento")
+  id              Int       @id @default(autoincrement())
+  titulo          String
+  descricao       String?
+  status          Status
+  dataVencimento  DateTime? @map("data_vencimento")
 
   @@map("tarefas")
 }
