@@ -1,5 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 const tarefasRoutes = require('./routes/tarefasRoutes');
 const errorHandler = require('./middlewares/errorHandler');
@@ -10,6 +11,7 @@ const app = express();
 
 // Middlewares globais
 app.use(express.json());
+app.use(cors());
 
 // Rotas
 app.use('/tarefas', tarefasRoutes);
